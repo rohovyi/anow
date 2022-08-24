@@ -42,7 +42,6 @@
 
 .svg-speed-dims {
   width: 44px;
-  height: 44px;
 }
 
 main > section:last-of-type {
@@ -61,7 +60,7 @@ main > section:last-of-type {
 
 .form__body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   grid-gap: 2rem;
 }
 
@@ -359,6 +358,10 @@ footer a:focus {
 }
 
 @media (orientation: portrait) and (min-width: 767px) {
+  .testimonials .marquee .js-marquee-wrapper {
+    font-size: calc(100px + 50 *(100vw / 1440));
+  }
+
   .news .page__info-address,
   .news .page__info-mail,
   .news .page__info-tel {
@@ -374,6 +377,10 @@ footer a:focus {
 }
 
 @media (orientation: portrait) and (max-width: 767px) {
+  .testimonials .marquee .js-marquee-wrapper {
+    font-size: calc(100px + 85 *((100vw - 320px) / 1440));
+  }
+
   .news .page__info-address,
   .news .page__info-mail,
   .news .page__info-tel {
@@ -419,6 +426,24 @@ footer a:focus {
 
   .about .page__image {
     grid-column: 1/13;
+    width: 100%;
+    height: 441px;
+    overflow: hidden;
+  }
+
+  .about .page__image img {
+    position: absolute;
+    width: 200%;
+    top: 0;
+    left: 0;
+    -webkit-animation-name: ken-burns;
+            animation-name: ken-burns;
+    -webkit-animation-duration: 80s;
+            animation-duration: 80s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
   }
 
   .about .page__signature {
@@ -429,6 +454,77 @@ footer a:focus {
     grid-column: 1/13;
     display: flex;
   }
+
+  .about .page__card-Icons .page__card-header {
+    position: relative;
+    background: none;
+  }
+
+  .about .page__card-Icons .page__card-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+
+  .about .page__card-Icons .page__card:nth-child(1) .page__card-header::after {
+    background-color: rgba(253, 133, 88, 0.1019607843);
+  }
+
+  .about .page__card-Icons .page__card:nth-child(2) .page__card-header::after {
+    background-color: rgba(58, 15, 115, 0.1019607843);
+  }
+
+  .about .page__card-Icons .page__card:nth-child(3) .page__card-header::after {
+    background-color: rgba(112, 180, 70, 0.1019607843);
+  }
+
+@-webkit-keyframes ken-burns {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    25% {
+      transform: translate(-50%, -50%);
+    }
+
+    50% {
+      transform: translate(0, -50%) scale(1.2);
+    }
+
+    75% {
+      transform: translate(-50%, 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes ken-burns {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    25% {
+      transform: translate(-50%, -50%);
+    }
+
+    50% {
+      transform: translate(0, -50%) scale(1.2);
+    }
+
+    75% {
+      transform: translate(-50%, 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+}
 
   .works .page__container::after {
     content: "works";
@@ -452,28 +548,8 @@ footer a:focus {
   .works .page__gallery {
     grid-column: 1/7;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-  }
-
-  .works .page__image:nth-child(1) {
-    grid-column: 1/3;
-  }
-
-  .works .page__image:nth-child(2) {
-    grid-column: 3/5;
-  }
-
-  .works .page__image:nth-child(3) {
-    grid-column: 1/5;
-  }
-
-  .works .page__image:nth-child(4) {
-    grid-column: 1/3;
-  }
-
-  .works .page__image:last-child {
-    grid-column: 3/5;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
   }
 
   .works .page__progress {
@@ -502,6 +578,7 @@ footer a:focus {
 
   .works .page__card {
     position: relative;
+    padding: 0;
   }
 
   .works .page__card-list {
@@ -517,12 +594,25 @@ footer a:focus {
 
   .works .page__card-Team {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
     gap: 30px;
   }
 
   .works .page__card-header {
     width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    pointer-events: all;
+  }
+
+  .works .page__card-header img {
+    transition: 1s;
+    display: block;
+  }
+
+  .works .page__card-header:hover img,
+  .works .page__card-header:focus img {
+    transform: scale(1.2);
   }
 
   .works .page__card-body {
@@ -553,165 +643,37 @@ footer a:focus {
     color: #FCFCFC;
   }
 
-  .works .page .testimonials {
-    background: #3A0F73;
-  }
-
-  .works .page .testimonials .page__container {
-    height: 760px;
-    grid-template-rows: repeat(2, maxcontent);
-    place-content: end center;
-  }
-
-  .works .page .testimonials .page__container::after {
-    content: "testimonials";
-    position: absolute;
-    left: calc(50% - 450px);
-    top: calc(50% - 75px);
-  }
-
-  .works .page .testimonials .page__text,
-  .works .page .testimonials .page__author {
-    grid-column: 1/13;
-    margin: 0 auto;
-  }
-
-  .works .page .testimonials .page__text {
-    text-align: center;
-    max-width: 824px;
-  }
-
-  .works .page .testimonials .page__author {
-    display: grid;
-    grid-template-columns: repeat(2, maxcontent);
-    grid-template-rows: repeat(2, maxcontent);
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-  }
-
-  .works .page .testimonials .page__author-image {
-    grid-row: 1/3;
-  }
-
-  .works .page .testimonials .page__author-name {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-  }
-
-  .works .page .testimonials .page__author-position {
-    grid-column: 2/3;
-  }
-
-  .works .page .news .page__title,
-  .works .page .news .page__sub-title {
-    grid-column: 1/13;
-    text-align: center;
-  }
-
-  .works .page .news .page__title {
-    margin: 0 auto;
-  }
-
-  .works .page .news .page__card-News {
-    grid-column: 1/13;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-    gap: 30px;
-  }
-
-  .works .page .news .page__card {
-    display: grid;
-    margin-bottom: 100px;
-  }
-
-  .works .page .news .page__card-header {
-    width: 100%;
-    max-height: 75%;
-    padding: 0;
-  }
-
-  .works .page .news .page__card-data {
-    font-family: Poppins;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #999999;
-  }
-
-  .works .page .news .page__card-title {
-    font-family: Poppins;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 33px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #222222;
-  }
-
-  .works .page .news .page__card-link {
-    font-family: Poppins;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #FD8558;
-  }
-
-  .works .page .news .page__info {
-    grid-column: 1/5;
-  }
-
-  .works .page .news .page__info-address,
-  .works .page .news .page__info-mail,
-  .works .page .news .page__info-tel {
-    font-family: Poppins;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 33px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #222222;
-  }
-
-  .works .page .news .page__info-title {
-    font-family: Poppins;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 2px;
-    text-align: left;
-    color: rgba(34, 34, 34, 0.4);
-  }
-
-  .works .page .news .page__form {
-    grid-column: 5/13;
-  }
-
   .testimonials {
     background: #3A0F73;
   }
 
+  .testimonials .marquee {
+    position: relative;
+    top: calc(50% - 300px);
+    width: 100%;
+  }
+
+  .testimonials .marquee .js-marquee-wrapper {
+    position: absolute;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 145px;
+    letter-spacing: 0.1000000015px;
+    text-align: left;
+    color: #F7F7F7;
+  }
+
   .testimonials .page__container {
+    max-width: 100%;
     height: 760px;
     grid-template-rows: repeat(2, maxcontent);
     place-content: end center;
-  }
-
-  .testimonials .page__container::after {
-    content: "testimonials";
-    position: absolute;
-    left: calc(50% - 450px);
-    top: calc(50% - 75px);
+    overflow-x: hidden;
   }
 
   .testimonials .page__text,
   .testimonials .page__author {
-    grid-column: 1/13;
+    grid-column: 1/7;
     margin: 0 auto;
   }
 
@@ -767,8 +729,19 @@ footer a:focus {
 
   .news .page__card-header {
     width: 100%;
-    max-height: 75%;
-    padding: 0;
+    display: inline-block;
+    overflow: hidden;
+    pointer-events: all;
+  }
+
+  .news .page__card-header img {
+    transition: 1s;
+    display: block;
+  }
+
+  .news .page__card-header:hover img,
+  .news .page__card-header:focus img {
+    transform: scale(1.2);
   }
 
   .news .page__card-data {

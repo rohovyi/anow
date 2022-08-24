@@ -152,21 +152,12 @@ body._touch .menu__list > li._active .menu__arrow {
 
 /*hero*/
 
-.page__section-0 {
+.parallax {
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 360px;
-}
-
-.parallax {
-  min-height: 100vh;
-  flex: 1 0 100%;
-  position: relative;
-  overflow: hidden;
 }
 
 .parallax__container {
@@ -248,11 +239,11 @@ body._touch .menu__list > li._active .menu__arrow {
 }
 
 .parallax__planet-2 {
-  background: url("../img/hero/image-5.webp") 50% 20%/cover no-repeat;
+  background: url("../img/hero/image-5.webp") 50% 0%/cover no-repeat;
   max-width: 936px;
   max-height: 583px;
   top: calc(50% - 291.5px + 563px);
-  right: -291.5px;
+  right: -748.8px;
 }
 
 .parallax__hole-0,
@@ -428,6 +419,20 @@ body._touch .menu__list > li._active .menu__arrow {
 @media (max-width: 499px) {
   .parallax__hole-0,
   .parallax__hole-1 {
-    display: none;
+    left: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    width: 110%;
+  }
+
+  .header--fixed {
+    width: 100%;
+  }
+
+  body {
+    width: 110%;
   }
 }
