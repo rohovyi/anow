@@ -2344,7 +2344,7 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
   };
 
   // sw.ts
-  precacheAndRoute([{"revision":"b24d4ad30586c0d95d30c876bc0fdcbc","url":"package-lock.json"},{"revision":"2210a23c53beb3b5225a33e9216e0f4d","url":"package.json"},{"revision":"866cb8055d737ac8e3d14bb9f6fc626c","url":"site.webmanifest"},{"revision":"62b43c5a5fe01e3c62587eb98ff005e6","url":"sw.ts"},{"revision":"d61d7f09f9d474796d853b200f054c7b","url":"index.html"},{"revision":"20a2728f268b2b3b8fc9fe3df941d4ea","url":"css/style.min.css"},{"revision":"6e905c512d8b3cd5029d9b51fac39959","url":"css/portrait.min.css"},{"revision":"6bdc13380fab99487e602c2f3ac5727c","url":"css/landscape.min.css"},{"revision":"ce8585b1aba9315f565323f499cdaee0","url":"fonts/OpenSans-Regular.woff2"},{"revision":"00e0c794ba4c255435657d0f9aedc8e4","url":"fonts/Poppins-Bold.woff2"},{"revision":"70aed97e39fb1dfe8e41e968ef39ffed","url":"js/app.min.js"}]);
+  precacheAndRoute([{"revision":"2a4b5d5459e8c0c61285718c20a53256","url":"site.webmanifest"},{"revision":"62b43c5a5fe01e3c62587eb98ff005e6","url":"sw.ts"},{"revision":"7b9825d0381358b9e72ef096a130e48e","url":"index.html"},{"revision":"20a2728f268b2b3b8fc9fe3df941d4ea","url":"css/style.min.css"},{"revision":"6e905c512d8b3cd5029d9b51fac39959","url":"css/portrait.min.css"},{"revision":"6bdc13380fab99487e602c2f3ac5727c","url":"css/landscape.min.css"},{"revision":"ce8585b1aba9315f565323f499cdaee0","url":"fonts/OpenSans-Regular.woff2"},{"revision":"00e0c794ba4c255435657d0f9aedc8e4","url":"fonts/Poppins-Bold.woff2"},{"revision":"70aed97e39fb1dfe8e41e968ef39ffed","url":"js/app.min.js"}]);
   registerRoute(({ request }) => request.destination === "image", new NetworkFirst({
     cacheName: "images",
     plugins: [
