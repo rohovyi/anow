@@ -576,6 +576,42 @@ html.dark textarea {
   color: black;
 }
 
+.tr_Left {
+  transform: translate(-100%);
+  transition: all 1s ease 0s;
+}
+
+.tr_Left--active {
+  transform: translate(0%);
+}
+
+.tr_Right {
+  transform: translate(400%);
+  transition: all 1s ease 0s;
+}
+
+.tr_Right--active {
+  transform: translate(0%);
+}
+
+.tr_Bottom {
+  transform: translateY(100%);
+  transition: all 1s ease 0s;
+}
+
+.tr_Bottom--active {
+  transform: translateY(0%);
+}
+
+.sc {
+  transform: scale(0);
+  transition: all 1s ease 0s;
+}
+
+.sc--active {
+  transform: scale(1);
+}
+
 @media (min-width: 767px) {
   .page__container::after {
     font-size: calc(100px + 50 *(100vw / 1440));

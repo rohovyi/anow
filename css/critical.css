@@ -187,8 +187,12 @@ body._touch .menu__list > li._active .menu__arrow {
   align-items: center;
 }
 
-.parallax__buttons * {
-  margin: 1rem;
+.parallax__buttons button {
+  width: 100px;
+}
+
+.parallax__buttons button:last-child {
+  margin-left: 1rem;
 }
 
 .parallax__list {
@@ -280,7 +284,7 @@ body._touch .menu__list > li._active .menu__arrow {
 
 @media (min-width: 767px) {
   .parallax__title {
-    font-size: calc(40px + 30 *(100vw / 1440));
+    font-size: calc(35px + 35 *(100vw / 1440));
   }
 
   .menu__list {
@@ -303,7 +307,7 @@ body._touch .menu__list > li._active .menu__arrow {
 
 @media (max-width: 767px) {
   .parallax__title {
-    font-size: calc(40px + 51 *((100vw - 320px) / 1440));
+    font-size: calc(35px + 59.5 *((100vw - 320px) / 1440));
   }
 
   .menu__icon {
@@ -414,25 +418,44 @@ body._touch .menu__list > li._active .menu__arrow {
     font-size: 20px;
     color: black;
   }
+
+  .parallax__bg {
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: url("../img/hero/image.webp") 20% 100%/cover no-repeat;
+  }
+
+  .parallax__planet-0 {
+    left: 0;
+    top: 0;
+  }
+
+  .parallax__planet-1 {
+    background: url("../img/hero/image-5.webp") 100% 100%/contain no-repeat;
+    top: 20%;
+    left: 50%;
+  }
+
+  .parallax__planet-2 {
+    display: none;
+  }
+
+  .parallax__cross-0 {
+    top: auto;
+    bottom: 5%;
+    left: 10%;
+  }
+
+  .parallax__cross-1 {
+    display: none;
+  }
 }
 
 @media (max-width: 499px) {
   .parallax__hole-0,
   .parallax__hole-1 {
     left: 0;
-  }
-}
-
-@media (max-width: 400px) {
-  .header {
-    width: 110%;
-  }
-
-  .header--fixed {
-    width: 100%;
-  }
-
-  body {
-    width: 110%;
   }
 }
